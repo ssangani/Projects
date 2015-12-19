@@ -1,0 +1,82 @@
+Following project is a small sample of setting up web server which can be expanded for restaurant PMS system
+or somethiing of similar nature
+
+System consists mainly of menu right
+1.	Each menu entry is consists of name, description, price as well as advanced parameters 
+	such as category to which item belongs to (Dessert, Appetizer, Sandwiches etc.) 
+	and family it belongs to (Lunch, Breakfast, Beverages, Dinner, Party etc.)
+	In addition to this, each item can have certain side orders or addons such as fries, soda etc.
+2. 
+	a.	You can use http request similar to given below to view all available menu families
+			GET /menuFamily/all HTTP/1.1
+			Host: localhost:3112
+			Cache-Control: no-cache
+	b.	You can use http request similar to below to add new family/families to system
+			POST /menuFamily/insert HTTP/1.1
+			Host: localhost:3112
+			content-type: application/json
+			Cache-Control: no-cache
+				{
+					"families": [
+						["Brunch"]
+					]
+				}
+3.
+	a.	You can use http request similar to given below to view all available menu categories
+			GET /menuCategory/all HTTP/1.1
+			Host: localhost:3112
+			Cache-Control: no-cache
+	b.	You can use http request similar to below to add new category/categories to system
+			POST /menuCategory/insert HTTP/1.1
+			Host: localhost:3112
+			content-type: application/json
+			Cache-Control: no-cache
+			{
+				"categories": [
+					["Pasta"], 
+					["Calzone"]
+				]
+			}
+4.
+	a.	You can use http request similar to given below to view all available menu addons
+			GET /menuAddon/all HTTP/1.1
+			Host: localhost:3112
+			Cache-Control: no-cache
+	b.	You can use http request similar to below to add new addon/addons to system
+			POST /menuAddon/insert HTTP/1.1
+			Host: localhost:3112
+			content-type: application/json
+			Cache-Control: no-cache
+			{
+				"addons": [["Sweet Potato Fries"], ["Guacamole"]]
+			}
+5.
+	a.	You can use http request similar to given below to view all available menu items
+			GET /menuItem/all HTTP/1.1
+			Host: localhost:3112
+			Cache-Control: no-cache
+	b.	You can use http request similar to below to add new addon/addons to system
+			POST /menuItem/insert HTTP/1.1
+			Host: localhost:3112
+			content-type: application/json
+			Cache-Control: no-cache
+			{
+				"menuItemName": "chef's fav",
+				"menuItemPrice": 5.00,
+				"menuCategoryName": "Pizza",
+				"menuFamilyName": "Lunch",
+				"menuItemStartTime": "1970-01-01 00:00:00",
+				"menuItemEndTime": "1970-01-01 00:00:00",
+				"addons": [
+					{
+						"menuAddonId": 11,
+						"menuAddonPrice": 0.5,
+						"isLimited": 0
+					},
+					{
+						"menuAddonId": 1,
+						"menuAddonPrice": 0.5,
+						"isLimited": 0
+					}
+				]
+			}
